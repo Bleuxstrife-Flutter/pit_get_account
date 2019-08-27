@@ -2,6 +2,7 @@ package com.padimas.pit_get_account;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.content.Context;
 import android.database.Cursor;
 import android.os.Build;
 import android.provider.ContactsContract;
@@ -24,10 +25,10 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
  */
 public class PitGetAccountPlugin implements MethodCallHandler {
     public PitGetAccountPlugin(Registrar registrar) {
-        this.registrar = registrar;
+        this.context = registrar.context();
     }
 
-    Registrar registrar;
+    Context context;
 
     /**
      * Plugin registration.
@@ -42,18 +43,18 @@ public class PitGetAccountPlugin implements MethodCallHandler {
         if (call.method.equals("getAccount")) {
             List<String> res = getAccount();
             result.success(res);
-        }  else {
+        } else {
             result.notImplemented();
         }
     }
 
     public List<String> getAccount() {
-        AccountManager accManager = AccountManager.get(registrar.context());
+        AccountManager accManager = AccountManager.get(context);
         Account acc[] = accManager.getAccounts();
 
         List<String> list = new ArrayList<String>();
         for (int i = 0; i < acc.length; i++) {
-            list.add(acc[i].name + " (" + acc[i].type + ") ");
+            if (acc[i].type.equals("com.google")) list.add(acc[i].name);
         }
         return list;
     }

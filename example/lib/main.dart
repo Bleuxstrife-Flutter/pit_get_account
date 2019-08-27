@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('List Account in this device: ${result.toString()}\n'),
+          child: Text('List Account in this device: $result \n'),
         ),
       ),
     );
