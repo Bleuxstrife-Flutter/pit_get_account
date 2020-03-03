@@ -1,3 +1,7 @@
+## 0.1.1
+
+* Fix for IOS
+
 ## 0.0.1+2
 
 * changelog.MD revision

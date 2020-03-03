@@ -22,7 +22,6 @@ class _MyAppState extends State<MyApp> {
   }
   Future<void> initPlatformState() async {
     try {
-      await PitPermission.requestSinglePermission(PermissionName.contact);
       result = await PitGetAccount.getAccount();
     } on PlatformException {
       print("Error");

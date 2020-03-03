@@ -9,7 +9,7 @@ Use this Plugin for get Account Info, this plugin only work on android
 First, add `pit_get_account` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
 
 ```
-pit_get_account: ^0.0.1+2
+pit_get_account: ^0.1.1
 ```
 
 ## Important
